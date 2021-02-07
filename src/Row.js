@@ -20,7 +20,7 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
             <h2>{title}</h2>
             <div className="row__posters">
                 {movies.map(function (movie, imageIndex) {
-                    return <img className={`row__poster ${isLargeRow && "row__posterLarger"}`} 
+                    return <img key={imageIndex} className={`row__poster ${isLargeRow && "row__posterLarger"}`} 
                     src={`${baseURL}${isLargeRow ? movie.poster_path : movie.backdrop_path} `} alt={movie.name} />;
                 })}
             </div>
