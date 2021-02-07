@@ -1,11 +1,13 @@
 FROM node:10
 
-RUN mkdir p ~/app
-WORKDIR '/app'
+RUN mkdir -p /var/www/netflix
+WORKDIR /var/www/netflix
 
-COPY package.json .
+COPY package.json /var/www/netflix
 RUN npm install
 
-COPY . .
+COPY . /var/www/netflix
 
-CMD ["npm", "run", "start"]
+EXPOSE 4200
+
+CMD ["npm", "start"]
